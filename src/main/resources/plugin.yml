@@ -1,0 +1,22 @@
+name: ${project.name}
+version: ${project.version}
+description: ${project.description}
+main: ${project.groupId}.${project.name}Plugin
+author: PureGero
+api-version: 1.20
+folia-supported: true
+commands:
+  warp:
+    description: Warp to a location
+    permission: warps.warp
+  setwarp:
+    description: Set a warp location
+    permission: warps.setwarp
+  delwarp:
+    description: Delete a warp location
+    permission: warps.setwarp
+permissions:
+    warps.warp:
+        default: op
+    warps.setwarp:
+        default: op
