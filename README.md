@@ -1,6 +1,8 @@
-# warp-plugin
+# FoliaWarp
 
-Folia & ShreddedPaper compatible warp plugin
+Folia warp plugin!
+
+<br>
 
 ## Commands
 
