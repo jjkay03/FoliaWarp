@@ -38,7 +38,7 @@ class SetWarpCommand : CommandExecutor {
         FoliaWarp.INSTANCE.scheduleConfigSave()
 
         // Feedback
-        sender.sendMessage("§aWarp set: $warpName")
+        sender.sendMessage("§3\uD83C\uDF00 §bSet warp §3$warpName")
 
         return true
     }

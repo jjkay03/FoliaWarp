@@ -27,7 +27,7 @@ class DelWarpCommand : CommandExecutor, TabCompleter {
         FoliaWarp.INSTANCE.scheduleConfigSave()
 
         // Feedback
-        sender.sendMessage("§aWarp deleted: $warpName")
+        sender.sendMessage("§3\uD83C\uDF00 §bDeleted warp §3$warpName")
 
         return true
     }
