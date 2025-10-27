@@ -1,10 +1,12 @@
 name: ${project.name}
 version: ${project.version}
 description: ${project.description}
-main: ${project.groupId}.${project.name}Plugin
-author: PureGero
+author: PureGero, jjkay03
+
+main: com.jjkay03.foliawarp.FoliaWarp
 api-version: 1.20
 folia-supported: true
+
 commands:
   warp:
     description: Warp to a location
@@ -15,6 +17,7 @@ commands:
   delwarp:
     description: Delete a warp location
     permission: warps.setwarp
+
 permissions:
     warps.warp:
         default: op
