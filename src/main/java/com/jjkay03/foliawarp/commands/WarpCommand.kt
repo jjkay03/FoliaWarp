@@ -1,6 +1,7 @@
 package com.jjkay03.foliawarp.commands
 
 import com.jjkay03.foliawarp.FoliaWarp
+import com.jjkay03.foliawarp.Utils
 import org.bukkit.Bukkit
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
@@ -21,10 +22,13 @@ class WarpCommand : CommandExecutor, TabCompleter {
         if (args.isEmpty()) { sender.sendMessage("§cUsage: /$label <warp> [player]"); return false }
 
         val warpName = args[0]
-        val warpLocation = FoliaWarp.INSTANCE.getWarpLocation(warpName)
+        val warpLocation = Utils.getWarpLocation(warpName)
 
         // End if warp not found
         if (warpLocation == null) { sender.sendMessage("§cWarp not found!"); return false }
+
+        // End if world doesn't exist
+        if (warpLocation.world == null) { sender.sendMessage("§cWarp world '${warpLocation.world.name}' not found!"); return false }
 
         // Check if player argument provided
         if (args.size >= 2) {
@@ -55,7 +59,7 @@ class WarpCommand : CommandExecutor, TabCompleter {
     // TAB COMPLETION
     override fun onTabComplete(sender: CommandSender, command: Command, label: String, args: Array<out String>): List<String>? {
         if (args.size == 1) {
-            return FoliaWarp.INSTANCE.getWarpNames().filter { it.lowercase().startsWith(args[0].lowercase()) }
+            return Utils.getWarpNames().filter { it.lowercase().startsWith(args[0].lowercase()) }
         }
         if (args.size == 2) {
             return Bukkit.getOnlinePlayers().map { it.name }.filter { it.lowercase().startsWith(args[1].lowercase()) }

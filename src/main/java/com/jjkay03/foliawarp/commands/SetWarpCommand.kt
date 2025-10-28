@@ -1,6 +1,7 @@
 package com.jjkay03.foliawarp.commands
 
 import com.jjkay03.foliawarp.FoliaWarp
+import com.jjkay03.foliawarp.Utils
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -35,7 +36,7 @@ class SetWarpCommand : CommandExecutor {
         }
 
         // Save warp in config
-        FoliaWarp.INSTANCE.scheduleConfigSave()
+        Utils.scheduleConfigSave()
 
         // Feedback
         sender.sendMessage("§3\uD83C\uDF00 §bSet warp §3$warpName")

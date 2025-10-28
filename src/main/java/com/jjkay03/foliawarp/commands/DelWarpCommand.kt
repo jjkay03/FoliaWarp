@@ -1,6 +1,7 @@
 package com.jjkay03.foliawarp.commands
 
 import com.jjkay03.foliawarp.FoliaWarp
+import com.jjkay03.foliawarp.Utils
 import org.bukkit.command.Command
 import org.bukkit.command.CommandExecutor
 import org.bukkit.command.CommandSender
@@ -24,7 +25,7 @@ class DelWarpCommand : CommandExecutor, TabCompleter {
             FoliaWarp.INSTANCE.config.set("warps.$warpName", null)
         }
 
-        FoliaWarp.INSTANCE.scheduleConfigSave()
+        Utils.scheduleConfigSave()
 
         // Feedback
         sender.sendMessage("§3\uD83C\uDF00 §bDeleted warp §3$warpName")
@@ -35,7 +36,7 @@ class DelWarpCommand : CommandExecutor, TabCompleter {
     // TAB COMPLETION
     override fun onTabComplete(sender: CommandSender, command: Command, label: String, args: Array<out String>): List<String>? {
         if (args.size == 1) {
-            return FoliaWarp.INSTANCE.getWarpNames().filter { it.lowercase().startsWith(args[0].lowercase()) }
+            return Utils.getWarpNames().filter { it.lowercase().startsWith(args[0].lowercase()) }
         }
         return emptyList()
     }
