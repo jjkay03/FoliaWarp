@@ -28,7 +28,10 @@ class WarpCommand : CommandExecutor, TabCompleter {
         if (warpLocation == null) { sender.sendMessage("§cWarp not found!"); return false }
 
         // End if world doesn't exist
-        if (warpLocation.world == null) { sender.sendMessage("§cWarp world '${warpLocation.world.name}' not found!"); return false }
+        val warpWorldName = warpLocation.world?.name
+        if (warpWorldName == null || Bukkit.getWorld(warpWorldName) == null) {
+            sender.sendMessage("§cWarp world not found!"); return false
+        }
 
         // Check if player argument provided
         if (args.size >= 2) {
